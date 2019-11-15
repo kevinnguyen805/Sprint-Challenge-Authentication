@@ -4,6 +4,7 @@ const Users = require('../users/users-model.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+//TODO: /api/auth/register
 router.post('/register', (req, res) => {
   // implement registration
   const newUser = req.body;
@@ -26,6 +27,7 @@ router.post('/register', (req, res) => {
   }
 });
 
+//TODO: /api/auth/login
 router.post('/login', (req, res) => {
   // implement login
   let {username, password} = req.body
