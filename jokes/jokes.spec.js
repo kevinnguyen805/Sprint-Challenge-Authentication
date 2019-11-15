@@ -13,6 +13,27 @@ describe('jokes', function(){
      })
 })
 
+
+describe('another jokes test', function(){
+     var token = null;
+
+     beforeEach(async () => {
+          request(server).post('/api/auth/login').send({username:"username", password:"password"})
+          .end(function (err, res){
+               token = res.body.token;
+          })
+     })
+
+     it('should get a valid token', function(){
+          
+          request(server).get('/api/jokes')
+          .set('Authorization', 'Bearer ' + token)
+          .expect(200)
+     })
+})
+
+
+
 describe('jokes', () => {
    it('requires authorization to get status code 200', () => {
                let loginResponse
@@ -31,3 +52,6 @@ describe('jokes', () => {
           })
      })
 })
+
+
+
